@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">{% if membre %}Modifier{% else %}Ajouter{% endif %} un membre</h3>
+          </div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              <div class="input-group-sm mb-2">
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" class="form-control" {% if membre %}value="{{ membre.nom }}"{% endif %} required>
+              </div>
+              <div class="input-group-sm mb-2">
+                <label for="prenom">Prenom :</label>
+                <input type="text" name="prenom" id="prenom" class="form-control" {% if membre %}value="{{ membre.prenom }}"{% endif %} required>
+              </div>
+              <div class="input-group-sm mb-2">
+                <label for="cellule">Cellule :</label>
+                <select name="cellule" id="cellule" class="form-control select2">
+                  {% for cellule in cellules %}
+                    <option value="{{ cellule.id }}" {% if membre and membre.cellule.id == cellule.id %}selected{% endif %}>
+                      {{ cellule.nom }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="input-group-sm mb-2">
+                <label for="telephone">Telephone :</label>
+                <input type="text" name="telephone" id="telephone" class="form-control" {% if membre %}value="{{ membre.telephone }}"{% endif %}>
+              </div>
+              <div class="input-group-sm mb-2">
+                <label for="commission">Commission :</label>
+                <select name="commission" id="commission" class="form-control select2">
+                  <option value="" {% if not membre %}selected{% endif %}></option>
+                  {% for commission in commissions %}
+                    <option value="{{ commission.id }}" {% if membre and membre.commission and membre.commission.id == commission.id %}selected{% endif %}>
+                      {{ commission.nom }}
+                    </option>
+                  {% endfor %}
+                </select>
+                
+              </div>
+              
+              <div class="input-group justify-content-sm-between mt-3">
+                <input class="btn btn-primary" type="submit" value="{% if membre %}Modifier{% else %}Ajouter{% endif %}">
+                <a class="btn btn-warning" href="{% url 'membres' %}">Retour à la liste des membres</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

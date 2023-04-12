@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <a href="{% url 'membre_create' %}" class="btn btn-primary m-3">Ajouter un membre</a>
+  <a href="{% url 'generer_pdf' %}" class="btn btn-secondary m-3">Générer un PDF</a>
+  
+  <h1 class="mx-3">Liste des membres</h1>
+  <div class="data_table table-responsive">
+    <table id="membre_table" class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Téléphone</th>
+          <th>Cellule</th>
+          <th>Commission</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for membre in membres %}
+          <tr>
+            <td>{{ membre.prenom }} </td>
+            <td>{{ membre.nom }}</td>
+            <td>{% if membre.telephone %}{{ membre.telephone }}{% else %}Pas de téléphone{% endif %}</td>
+            <td>{{ membre.cellule }}</td>
+            <td>{% if membre.commission %}{{ membre.commission }} - {{ membre.cellule }} {% else %}Pas de commission{% endif %}</td>
+            <td>
+              <a  href="{% url 'membre_detail' membre.id %}"
+                  class="btn btn-outline-success btn-sm" type="button" title="Détails">
+                  <i class="bi bi-info-circle" style="font-size: 1rem;"></i>
+              </a>
+              <a href="{% url 'membre_update' membre.id %}"
+                  class="btn btn-outline-warning btn-sm" type="button" title="Modifier">
+                  <i class="bi bi-pencil-square" style="font-size: 1rem;"></i>
+              </a>
+              <a href="{% url 'membre_delete' membre.id %}"
+                class="btn btn-outline-danger btn-sm" type="button" title="Supprimer">
+                    <i class="bi bi-trash-fill" style="font-size: 1rem;"></i>
+              </a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="5">Aucune cotisation enregistrée.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+  </div>  
+{% endblock %}

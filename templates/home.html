@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-3">
+  <h1 class="text-center mb-4">Bienvenue - Dahira Sahanda</h1>
+  <!-- <p class="text-center text-white mb-4">Le portail de gestion de la dahira</p> -->
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Membres</h5>
+                <p class="card-text text-muted">Accédez à la liste des membres et les informations sur chacun d'eux</p>
+                <a href="{% url 'membres' %}" class="btn btn-primary">Voir les membres</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Commissions</h5>
+                <p class="card-text text-muted">Accédez à la liste des commissions de la dahira</p>
+                <a href="{% url 'commissions' %}" class="btn btn-primary">Voir les commissions</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Cotisations</h5>
+                <p class="card-text text-muted">Consultez la liste des Cotisations des mebres de la dahira</p>
+                <a href="{% url 'cotisations' %}" class="btn btn-primary">Voir les Cotisations</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Projets</h5>
+                <p class="card-text text-muted">Consultez les projets en cours et à réaliser</p>
+                <a href="#" class="btn btn-primary">Voir les projets</a>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Laylatoul Khadr</h5>
+                <p class="card-text text-muted">Consultez les informations relatives à la célébration de la nuit du destin</p>
+                <a href="#" class="btn btn-primary">Voir les informations</a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+{% endblock %}

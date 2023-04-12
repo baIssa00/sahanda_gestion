@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-5">Bienvenue sur Sahanda</h1>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+        <div class="card">
+            <img src="{% static 'img/dahira.jpg' %}" class="card-img-top" alt="Dahira">
+            <div class="card-body">
+            <h5 class="card-title">Dahira</h5>
+            <p class="card-text text-muted">Accédez à la liste des membres et des commissions de la dahira</p>
+            <a href="{% url 'membres' %}" class="btn btn-primary">Voir les membres</a>
+            <a href="{% url 'commissions' %}" class="btn btn-primary">Voir les commissions</a>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+        <div class="card">
+            <!-- <img src="{% static 'img/ziar.jpg' %}" class="card-img-top" alt="Ziar"> -->
+            <div class="card-body">
+            <h5 class="card-title">Ziar</h5>
+            <p class="card-text text-muted">Consultez la liste des ziar de la dahira et des informations sur chacun d'eux</p>
+            <a href="#" class="btn btn-primary">Voir les ziar</a>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+        <div class="card">
+            <!-- <img src="{% static 'img/bilan.jpg' %}" class="card-img-top" alt="Bilan"> -->
+            <div class="card-body">
+            <h5 class="card-title">Bilan</h5>
+            <p class="card-text text-muted">Consultez le bilan annuel de la dahira</p>
+            <a href="#" class="btn btn-primary">Voir le bilan</a>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+        <div class="card">
+            <!-- <img src="{% static 'img/laylatoul_khadr.jpg' %}" class="card-img-top" alt="Laylatoul Khadr"> -->
+            <div class="card-body">
+            <h5 class="card-title">Laylatoul Khadr</h5>
+            <p class="card-text text-muted">Consultez les informations relatives à la célébration de la nuit du destin</p>
+            <a href="#" class="btn btn-primary">Voir les informations</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

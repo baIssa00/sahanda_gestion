@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p><a class="btn btn-warning mt-3" href="{% url 'commissions' %}">Retour à la liste des Commissions</a></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h1>{% if view.action == 'create' %}Création{% else %}Modification{% endif %} d'une commission</h1>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <div class="input-group-sm mb-2">
+              <label for="nom">Nom :</label>
+              <input type="text" name="nom" id="nom" class="form-control" {% if commission %}value="{{ commission.nom }}"{% endif %} required>
+            </div>
+            <div class="input-group-sm mb-2">
+              <label for="cellule">Cellule :</label>
+              <select name="cellule" id="cellule" class="form-control select2">
+                <option value=""></option>
+                {% for cellule in cellules %}
+                  <option value="{{ cellule.id }}" {% if commission and commission.cellule and commission.cellule.id == cellule.id %}selected{% endif %}>
+                    {{ cellule.nom }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="input-group-sm mb-2">
+              <label for="responsable">Responsable :</label>
+              <select name="responsable" id="responsable" class="form-control select2">
+                <option value=""></option>
+                {% for membre in membres %}
+                  <option value="{{ membre.id }}" {% if commission and commission.responsable and commission.responsable.id == membre.id %}selected{% endif %}>
+                    {{ membre.nom }} {{ membre.prenom }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="input-group-sm mb-2">
+              <label for="description">Description :</label>
+              <textarea name="description" id="description" class="form-control" rows="5">{% if commission %}{{ commission.description }}{% endif %}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Détails du membre "{{ membre.nom }} {{ membre.prenom }}"</h1>
+
+  <p><a class="btn btn-warning" href="{% url 'membres' %}">Retour à la liste des membres</a></p>
+
+  <table  class="table">
+    <tr>
+      <td>Nom :</td>
+      <td>{{ membre.nom }}</td>
+    </tr>
+    <tr>
+      <td>Prénom :</td>
+      <td>{{ membre.prenom }}</td>
+    </tr>
+    <tr>
+      <td>Téléphone :</td>
+      <td>{{ membre.telephone }}</td>
+    </tr>
+    <tr>
+      <td>Cellule :</td>
+      <td>{{ membre.cellule }}</td>
+    </tr>
+    <tr>
+      <td>Commission :</td>
+      <td>{{ membre.commission }}</td>
+    </tr>
+  </table>
+
+  <a href="{% url 'membre_update' membre.pk %}" class="btn btn-primary">Modifier</a>
+  <a href="{% url 'membre_delete' membre.pk %}" class="btn btn-danger">Supprimer</a>
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Liste des types de cotisations</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for type_cotisation in type_cotisations %}
+        <tr>
+          <td>{{ type_cotisation.id }}</td>
+          <td>{{ type_cotisation.nom }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">Aucun type de cotisation pour le moment.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

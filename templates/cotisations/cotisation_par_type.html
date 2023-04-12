@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="mx-3">Bilan</h1>
+  <a href="{% url 'cotisations' %}" class="btn btn-warning m-3">retour à la liste cotisations</a>
+  
+  <div class="data_table table-responsive">
+    <table id="cotisationTable" class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Type de cotisation</th>
+          <th>Total des cotisations</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cotisation in cotisations %}
+          <tr>
+            <td>{{ cotisation.type_cotisation }} {{ cotisation.type_cotisation.nom }}</td>
+            <td>{{ cotisation.total }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="2">Aucune cotisation enregistrée.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+  </div>  
+{% endblock %}

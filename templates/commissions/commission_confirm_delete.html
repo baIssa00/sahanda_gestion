@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Suppression de la commission "{{ commission.nom }}"</h1>
+  <p>Êtes-vous sûr de vouloir supprimer la commission "{{ commission.nom }}" ?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    <a href="{% url 'commissions' %}" class="btn btn-secondary">Annuler</a>
+  </form>
+{% endblock %}

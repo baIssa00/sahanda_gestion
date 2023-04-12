@@ -1,0 +1,49 @@
+/* table  */
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    }
+  
+    legend {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    }
+    modal-dialog,
+    .modal-content {
+        height: 90vh;
+    }
+  
+.data_table{
+    background: #fff;
+    padding: 10px;
+    box-shadow: 1px 3px 5px #aaa;
+    border-radius: 5px;
+}
+
+/* .data_table .btn{
+    padding: 5px 10px;
+    margin: 10px 3px 10px 0;
+} */
+
+
+/* --------------------- footer ----------------- */
+
+#footer {
+    display: block;
+    background: #eee;
+    padding: 0 0 30px 0;
+    color: #555555;
+    font-size: 14px;
+}
+  
+
+#footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+  }
+  
